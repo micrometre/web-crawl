@@ -1,15 +1,18 @@
-import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+import time
 
-browser = webdriver.Chrome()
-browser.get("https://nextdoor.co.uk/news_feed")
+driver = webdriver.Chrome()
+driver.get("https://nextdoor.co.uk/news_feed")
 
-#search = browser.find_element(By.NAME, "q")
-#search.send_keys("selenium")
-#search.send_keys(Keys.RETURN) # hit return after you enter search text
-time.sleep(25) # sleep for 5 seconds so you can see the results
-browser.quit()
+time.sleep(5)
+search_box = driver.find_element(By.ID, 'didomi-notice-agree-button')
+search_box.send_keys(Keys.RETURN)
+time.sleep(15)
+
+# You can now interact with the search results using Selenium
+# For example, you could click on a specific link or extract information
+
+# Close the browser
+driver.quit()
